@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  forntend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: frontend-dev
+    volumes:
+      - ..:/workspace:cached
+      - /var/run/docker.sock:/var/run/docker.sock #コンテナ内からホストのDockerエンジンを操作するための設定、基本ここのソースを使って
+    command: sleep infinity
+
+    stdin_open: true   # コンテナをバックグラウンドで永続的に実行させる
+    tty: true
+    init: true   #適切なプロセス管理を行うためにinitプロセスを使用する

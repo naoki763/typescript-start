@@ -1,0 +1,36 @@
+{
+    "name": "devcontainer-node.js",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "forntend-dev",
+    // "remoteUser": "vscode",
+    "features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {} //コンテナ内でホストの Docker を使用できる設定
+	},
+    "workspaceFolder": "/workspace", //ワークスペースのルートディレクトリを設定
+
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind"
+            // "source=${localWorkspaceFolder},target=/workspace/${localWorkspaceFolderBasename},type=bind"
+    ], //ホストのディレクトリをコンテナ内にマウントする設定
+
+    "forwardPorts": [5173],
+
+    // "postCreateCommand": "curl -fsSL https://mise.run | sh && mise plugin add nodejs && mise plugin add pnpm && mise install && pnpm install",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "bradlc.vscode-tailwindcss",
+                "ms-vsliveshare.vsliveshare",
+                "yoavbls.pretty-ts-errors",
+                "dsznajder.es7-react-js-snippets",
+                "formulahendry.auto-close-tag",
+                "formulahendry.auto-rename-tag",
+                "fallenmax.mithril-emmet"
+
+            ]
+        }
+    }
+}
