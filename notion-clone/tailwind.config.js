@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react';
 export default {
   darkMode: ['class'],
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,cjs}'],
   plugins: [react(), require('tailwindcss-animate')],
   theme: {
     extend: {
